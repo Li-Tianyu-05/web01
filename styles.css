@@ -1,0 +1,270 @@
+/* 基本设置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Microsoft YaHei', sans-serif;
+}
+
+:root {
+    --primary-red: #c7000a;
+    --secondary-red: #ff4d4f;
+    --background: #fff9e6;
+    --text-dark: #333;
+}
+
+body {
+    background-color: var(--background);
+    line-height: 1.6;
+    color: var(--text-dark);
+}
+
+/* 导航栏 */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background-color: var(--primary-red);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.nav-logo {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    transition: opacity 0.3s;
+    font-size: 1.1rem;
+}
+
+.nav-links a:hover {
+    opacity: 0.8;
+}
+
+/* 主要内容容器 */
+.container {
+    max-width: 1200px;
+    margin: 80px auto 0;
+    padding: 2rem;
+}
+
+/* 英雄横幅 */
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 4rem 0;
+    background: linear-gradient(rgba(199,0,10,0.9), rgba(199,0,10,0.8)),
+                url('images/hero-bg.jpg');
+    background-size: cover;
+    color: white;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+/* 故事卡片 */
+.story-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.story-card {
+    flex: 1;
+    min-width: 300px;
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.story-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.story-card h2 {
+    color: var(--primary-red);
+    margin-bottom: 1rem;
+    border-left: 4px solid var(--primary-red);
+    padding-left: 1rem;
+}
+
+.story-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin: 1rem 0;
+    transition: opacity 0.3s;
+}
+
+.story-card:hover .story-img {
+    opacity: 0.9;
+}
+
+/* 名人名言 */
+.quote-section {
+    background-color: var(--primary-red);
+    color: white;
+    padding: 3rem;
+    text-align: center;
+    margin: 3rem 0;
+    border-radius: 10px;
+}
+
+.quote {
+    font-size: 1.2rem;
+    font-style: italic;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+/* 详情页样式 */
+.story-detail {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.story-detail h1 {
+    color: var(--primary-red);
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--primary-red);
+}
+
+.story-detail img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin: 2rem 0;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: var(--primary-red);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 1rem 0;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.back-button:hover {
+    transform: translateX(-5px);
+    background-color: var(--secondary-red);
+}
+
+/* 时间线组件 */
+.timeline {
+    border-left: 3px solid var(--primary-red);
+    padding-left: 2rem;
+    margin: 2rem 0;
+    position: relative;
+}
+
+.timeline-item {
+    position: relative;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -2.35rem;
+    top: 1.2rem;
+    width: 12px;
+    height: 12px;
+    background: var(--primary-red);
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px var(--background);
+}
+
+.timeline-item h3 {
+    color: var(--primary-red);
+    margin-bottom: 0.5rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .story-card {
+        flex: 100%;
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .story-detail {
+        padding: 1.5rem;
+    }
+    
+    .timeline {
+        padding-left: 1.5rem;
+    }
+    
+    .timeline-item::before {
+        left: -1.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 2rem 0;
+    }
+    
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .quote {
+        font-size: 1rem;
+    }
+    
+    .back-button {
+        width: 100%;
+        text-align: center;
+    }
+}
